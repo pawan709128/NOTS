@@ -1,0 +1,246 @@
+					       Font Styles & Effects
+
+Bold				<b>  <strong>
+Italics			<i>   <em>
+Underline		<u>  <ins>
+Strikeout			<strike> <del>
+Super Script		<sup>
+Sub Script		<sub>
+
+FAQ: What is difference between <b> & <strong> ?
+Ans:  <b> is used in designing and <strong> is used in review.
+
+Note: Every documentation have 2 modes
+		a) Design
+		b) Review
+	  In design mode developer will design a document.
+	  In review mode reviewer will identify the changes and reports to developer.
+	  Finally while publishing a webpage it should not contain any type of review tags.
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+    <div>
+       The font style <b><u>Bold</u></b> is similar to <strong><ins>Strong</ins></strong>. <br>
+       The font style <i><strike>Italics</strike></i> is similar to <em><del>Emphasized.</del></em>
+       <br> 
+       28<sup>o</sup> <br>
+       H<sub>2</sub>O
+    </div>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart-Mobiles</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .product {
+            display: grid;
+            grid-template-columns: 2fr 7fr 3fr;
+            grid-gap: 20px;
+        }
+        ul {
+            margin-left: -25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .rating{
+            background-color: green;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <font face="Arial">
+    <div class="product">
+        
+        <div>
+
+        </div>
+        <div>
+            <h2><font color="blue">realme C55 (Rainforest, 128 GB)</font></h2>
+            <div>
+                <span class="rating"> 4.4 <span class="bi bi-star-fill"></span> </span> <span class="reviews"> <b><font color="gray"> 17,000 reviews & 500 ratings</font></b> </span>
+            </div>
+            <div>
+                <font color="gray">
+                    <ul>
+                        <li>8 GB RAM | 128 GB ROM | Expandable Upto 1 TB</li>
+                        <li>17.07 cm (6.72 inch) Full HD+ Display</li>
+                        <li>64MP + 2MP | 8MP Front Camera</li>
+                        <li>5000 mAh Battery</li>
+                        <li>Helio G88 Processor</li>
+                        <li>1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In the Box Accessories</li>
+                    </ul>
+                </font>
+            </div>
+        </div>
+        <div>
+            <h1>&#8377; 13,999</h1>
+            <div>
+                <span><strike>15,999</strike></span> 
+                <span><font color="green">12% Off</font></span>
+            </div>
+            <br>
+            <div>
+                Free delivery by <b>Today</b>
+            </div>
+            <br>
+            <div>
+                <font color="green"><b>Bank Offer</b></font>
+            </div>
+        </div>
+    
+    </div>
+</font>
+</body>
+</html>
+
+						  Horizontal Line
+
+<hr>			It sets a horizontal line:
+
+Attributes:
+1. size
+2. width
+3. noshade
+4. color
+
+Syntax:
+	<hr  size="3" noshade  color="blue"  width="500">
+
+
+						  Images in HTML
+
+- Images in computing are of various types.
+- Web supports only following type of images.
+
+Type 			MIME Type		Description
+-------------------------------------------------------------------------------------------------------------------
+APNG			image/apng		Animated Portable Network Graphics
+								[.apng]
+PNG			image/png		Portable Network Graphics
+								[.png]
+
+JPEG			image/jpeg		Joint Photographic Expert Group
+								[.jpg, .jpeg, .jfif ]
+
+GIF				image/gif			Graphic Interchange Format
+								[.gif]
+
+TIFF				image/tiff			Tagged Image File Format
+								[.tiff]
+
+BMP				image/bmp		Bitmap
+								[.bmp]
+
+ICO				image/ico			Microsoft Icon
+								[.ico]
+
+SVG				image/svg-xml		Scalar Vector Graphics
+								[.svg]
+
+Webp			image/webp		Web Picture
+								[.webp]
+
+FAQ: When to use specific image type? What are its features & applications?
+
+1. APNG & PNG			HD Images, More Pixel Depth, More memory space
+						If you are defining images for download then perfer png.
+
+2. JPG					HD Images, Compressed Images, Less memory space.
+						If you want to display images directly on page then use 
+						jpg.
+
+3. GIF					Only 256 colors, Less Pixel Depth, more memory, 								animated.
+						Always use GIF for buttons, logo, bullets, line etc..
+
+4. SVG					Vector graphics, not pixel based, high resolution
+						SVG is XML based images.
+						It is used in architectural diagrams, icons etc..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

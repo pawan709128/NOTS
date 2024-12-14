@@ -1,0 +1,227 @@
+						       Password
+- It allows a string input masked with password character "*".
+- All attributes are same as textbox, only "list" can't be used for passwords.
+
+Syntax:
+ <input type="password"  name="Password" required  minlength="4" maxlength="10" pattern="\w{4,10}">
+
+							Number
+- It allows to input a numeric value.
+- All attributes are same as textbox by have range configured with
+	a) min
+	b) max
+	c) value
+	d) step
+
+Syntax:
+  <input type="number" min="15"  max="30"  step="3" name="Age" required>
+  <input type="number" min="10.34" max="18.45" step="0.01" name="Rate">
+
+							Range
+- It is similar to number input but allows user to select a numeric value using slider.
+
+Syntax:
+ <input type="range" min="1" max="100" step="5" name="Qty">
+
+							Email
+- It validates email address.
+- It is just verifying the availability of "@" in a string.
+- Hence it is not suitable for all types of email requirements.
+
+Syntax:
+<input type="email"  name="Email" required  placeholder="Your email address">
+
+							URL
+- It validates URL format for input value.
+- URL must have a protocol and domain extention.
+
+		www.amazon.in			=> invalid
+		http://www.amazon.in		=> valid
+
+Syntax:
+ <input type="url" name="URL"  required  placeholder="Provide valid Address">
+
+							Color
+- It displays a color picker, that allows user to pick a color.
+- You can configure default color by using only 6 char hexa code.
+
+Syntax:
+ <input type="color" name="color"  value="#ff0000"> 
+
+						     Date & Time
+- HTML provides various types for date and time input
+		date
+		datetime-local
+		time
+		month
+		year
+		week
+- You can configure the date picker with restricted date and time range, by using the attributes
+		min
+		max
+- The date and time format for developer is 
+		
+		"yyyy-mm-dd  hrs:min:seconds.milliSeconds"
+
+Syntax:
+	<input type="date">
+	<input type="month">
+	<input type="time">
+	<input type="datetime-local">
+	<input type="week">
+
+Syntax: Restricted
+	<input type="date"  min="2023-07-31" max="2023-08-15" name="Departure"> 
+
+Note: You can't select a range of dates using HTML date picker.
+
+							  File
+- It is a file picker, that allows user to browse and select a file from their device.
+- It is not a file uploader.
+- You can set filters for file type but can't restrict the file type or size.
+- Filters are defined by using "accept" attribute.
+
+Syntax: No filters
+	<input type="file" name="photo">
+
+Syntax: JPG filters
+	<input type="file"  name="photo"  accept=".jpg">
+
+Syntax: Multiple Filters
+	<input type="file"  name="photo" accept=".jpg, .png, .gif">
+
+- File selector allows to choose only one file, If you want multiple files then you can define "multiple" attribute.
+
+Syntax:
+	<input type="file"  name="photos"  accept=".jpg"  multiple>
+
+Note: Uploading of files can be defined using client and server side logic, where you can restrict the file type and size.
+
+						      Radio Buttons
+- Radio button allows user to select one or multiple options from a group of choices.
+- Radio button once checked it can't be unchecked.
+- Radio's are good using a mechanism called "Mutex" [Mutual Exclusion].
+- Radio's can use mutex by implementing same reference name.
+- Process will allow only one from radios that have same name.
+
+Syntax:
+	<input type="radio"  name="gender"> Male
+	<input type="radio"  name="gender"> Female 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+

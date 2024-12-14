@@ -1,0 +1,510 @@
+Timer Events
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            var now = new Date();
+            var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Staturday"];
+            var months = ["January", "Feb", "March","April","May","June","July","August"];
+
+        function SetClock(){
+            document.getElementById("date").innerHTML = `
+               ${weekdays[now.getDay()]} ${now.getDate()}, ${months[now.getMonth()]} ${now.getFullYear()}
+           `;
+        }
+
+        function SetTimer(){
+            var now = new Date();
+            document.getElementById("time").innerHTML= now.toLocaleTimeString();
+        }
+
+        function bodyload(){
+           SetClock();
+           setInterval(SetTimer,1000);
+           var now = new Date();
+           var hrs = now.getHours();
+           var status = document.getElementById("status");
+           var poster = document.getElementById("poster");
+
+           if(hrs>=0 && hrs<=12){
+             status.innerHTML = "Good Morning";
+             poster.src = "../public/images/morning.gif";
+           }else if(hrs>12 && hrs<=17) {
+             status.innerHTML = "Good Afternoon";
+           } else if(hrs>17 && hrs<=23) {
+             status.innerHTML = "Good Evening";
+           }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <p align="center" id="date"></p>
+    <p align="center" id="time"></p>
+    <p align="center" id="status"></p>
+    <p align="center">
+        <img id="poster" width="100" height="100">
+    </p>
+</body>
+</html>
+
+
+
+
+						     Form Events
+- onsubmit
+- onreset
+
+- The form events are defined for <form> element.
+- They fireup only on submit and reset button clicks.
+- They define actions to perform when form is submitted or user resets the form.
+
+Syntax:
+	<form  onsubmit="function"   onreset="function">  </form>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="alert('Form will submit data to server')" onreset="alert('Form will reset')">
+        User name : <input type="text" name="UserName">
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+    </form>
+</body>
+</html>
+
+FAQ: How to submit form using other HTML elements?
+Ans: You have to call the form "submit()" on the specific element event.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function CityChange(){
+            frmMovies.submit();
+        }
+    </script>
+</head>
+<body>
+    <form name="frmMovies">
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" name="UserName"></dd>
+            <dt>City</dt>
+            <dd>
+                <select onchange="CityChange()" name="City">
+                    <option>Select City</option>
+                    <option>Delhi</option>
+                    <option>Hyd</option>
+                </select>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>
+
+						Adding Event Listener
+- You can add events to HTML element without configuring an event handler.
+- It allows dynamically to configure events.
+- It make clean separation of code and UI.
+- You have to configure Event Listener on specific event or using a module system.
+
+Syntax:
+	document.querySelector("button").addEventListener("eventName", function(){
+			// actions to perform
+            })
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            document.getElementById("btnInsert").addEventListener("click", function(){
+            document.write("Record Inserted");
+            })
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <button id="btnInsert">Insert</button>
+</body>
+</html>
+
+FAQ: How to change events for element dynamically?
+Ans: By adding Event Listener.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ChangeEvent(){
+            var eventName = document.querySelector("select").value;
+            document.getElementById("btnInsert").addEventListener(eventName, function(){
+            document.write("Record Inserted");
+            })
+        }
+    </script>
+</head>
+<body>
+     <div>
+        <select onchange="ChangeEvent()">
+            <option>Select Event</option>
+            <option value="mouseover">Mouse Over</option>
+            <option value="click">On Click</option>
+        </select>
+     </div>
+     <br><br><br>
+    <button id="btnInsert">Insert</button>
+</body>
+</html>
+
+					State Management Techniques
+
+- Every web application uses "http or https" as protocol.
+- Http is a state less protocol.
+- It can't remember information between pages.
+- Hence web applications implement various state management techniques to store data and access across pages or requests.
+- The state management is classified into 2 types
+		a) Client Side State Management
+		b) Server Side State Management
+- Client Side State Management allows to store data on client device.
+- The various client side state management techniques are
+		1. Query String
+		2. Local Storage
+		3. Session Storage
+		4. Cookies
+
+Query String:
+- A query string is appended into URL with a key and value reference
+
+			 ?key=value
+
+- Any form can submit its data into query string on "Get" request.
+- You can access querystring using 
+		"location.search"
+
+Ex:
+1. Add a new folder
+		"State"
+2. Add files
+		home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Home Page</h2>
+    <form action="welcome.html">
+        User Name : 
+        <input type="text" name="UserName">
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+
+	welcome.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            var queryString = location.search;
+            var name = queryString.substring(queryString.indexOf("=")+1);
+            document.querySelector("p").innerHTML = `Hello ! ${name}`;
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Welcome Page</h2>
+    <p></p>
+</body>
+</html>
+
+
+							Local Storage
+- Every browser have a local storage.
+- It is permanent storage.
+- It is available even after your device shut-down.
+- You have to delete manually from browser memory.
+- It is accessible across all tabs in browser.
+
+Syntax:
+	localStorage.setItem("key", "value");
+
+	var value = localStorage.getItem("key");
+
+Ex:
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            localStorage.setItem("uname", document.getElementById("UserName").value);
+            location.href = "welcome.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>Home Page</h2>
+        User Name : 
+        <input type="text" id="UserName" name="UserName">
+        <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>
+
+welcome.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+          if(localStorage.getItem("uname")==null){
+            location.href = "home.html";
+          } else {
+            document.querySelector("p").innerHTML = `Hello ! ${localStorage.getItem("uname")}`;
+          }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Welcome Page</h2>
+    <p></p>
+</body>
+</html>
+
+							Session Storage
+- It is temporary storage.
+- It is not accessible to other tabs.
+- It is removed when browser is closed.
+
+Note: You can store 10mb of data in local or session storage.
+
+Syntax:
+	sessionStorage.setItem("key", "value");
+	var ref = sessionStorage.getItem("key");
+	sessionStorage.removeItem("key");
+
+Ex:
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            sessionStorage.setItem("uname", document.getElementById("UserName").value);
+            location.href = "welcome.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>Home Page</h2>
+        User Name : 
+        <input type="text" id="UserName" name="UserName">
+        <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>
+
+welcome.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+          if(sessionStorage.getItem("uname")==null){
+            location.href = "home.html";
+          } else {
+            document.querySelector("p").innerHTML = `Hello ! ${sessionStorage.getItem("uname")}`;
+          }
+        }
+        function SignoutClick(){
+            sessionStorage.removeItem("uname");
+            location.href = "home.html";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Welcome Page  <button onclick="SignoutClick()">Signout</button> </h2>
+    <p></p>
+</body>
+</html>
+
+							Cookies
+- Cookies are simple text documents.
+- Client related information can be stored in a cookie file and used later by page.
+- Cookies need to be enabled in browser.
+- You can verify cookie status by using
+
+			"navigator.cookieEnabled"  => true if enabled with cookies
+
+- Cookie can be in-memory [temporary] or persistent [permanent]
+
+Syntax:
+	document.cookie = "key=value; expires= date time";
+	
+	var ref = document.cookie;
+
+	document.cookie = "key;"		=> delete cookie
+
+Ex:
+home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            document.cookie = `uname=${document.getElementById("UserName").value}; expires=Thu 7, Sep 2023 10:50:00`;
+            location.href = "welcome.html";
+        }
+    </script>
+</head>
+<body>
+    <h2>Home Page</h2>
+        User Name : 
+        <input type="text" id="UserName" name="UserName">
+        <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>
+
+welcome.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+          document.querySelector("p").innerHTML = document.cookie.substring(document.cookie.indexOf("=")+1);
+        }
+        function SignoutClick(){
+            sessionStorage.removeItem("uname");
+            location.href = "home.html";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Welcome Page  <button onclick="SignoutClick()">Signout</button> </h2>
+    <p></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

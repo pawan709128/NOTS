@@ -1,0 +1,430 @@
+							Method
+- It is used for refactoring the code.
+- It is similar to a function but mutable.
+- All functionality is same like function.
+
+Syntax:
+	class Name
+	{
+	  Method(params) {
+	
+          }
+        }
+
+- All function parameters and configurations are same for method.
+
+Ex:
+<script>
+     class Product
+     {
+        Name = "Samsung TV";
+        Price = 45000.33;
+        Qty = 0;
+        Total(){
+            return this.Qty * this.Price;
+        }
+        Print(){
+            document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Qty=${this.Qty}<br>Total=${this.Total()}`)
+        }
+     }
+     let obj = new Product();
+     obj.Qty = parseInt(prompt("Enter Quantity"));
+     obj.Print();
+</script>
+
+						    Constructor
+- It is a special type of sub-routine used for instantiation. [creating object]
+- Every class have a default constructor that creates an object for class.
+- JavaScript constructor is "anonymous".
+- It is defined with constructor keyword.
+
+Syntax:
+	 class  Name
+	 {
+	    constructor(){
+	    }
+         }
+	let  name = ClassName;			// valid
+	let  name = ClassName();		// valid
+
+- A construction is executed only once per object.
+- JavaScript constructor doesn't support access modifiers, overloading etc..
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Database 
+        {
+            constructor(dbName){
+                document.write(`Connected to ${dbName}<br>`);
+            }
+            Insert(){
+                document.write("Record Inserted<br>");
+            }
+            Update(){
+                document.write("Record Updated<br>");
+            }
+            Delete(){
+                document.write("Record Deleted<br>");
+            }
+        }
+        function InsertClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Insert();
+            obj.Insert();
+        }
+        function UpdateClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Update();
+        }
+        function DeleteClick(){
+            let obj = new Database(document.querySelector("select").value);
+            obj.Delete();
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Database Connection</legend>
+        <select>
+            <option>Select Database</option>
+            <option>Oracle</option>
+            <option>MySql</option>
+            <option>MongoDB</option>
+        </select>
+        <button onclick="InsertClick()">Insert</button>
+        <button onclick="UpdateClick()">Update</button>
+        <button onclick="DeleteClick()">Delete</button>
+    </fieldset>
+</body>
+</html>
+
+Summary:
+- Class Members
+	a) property
+	b) accessor
+	c) method
+	d) constructor
+
+					   Code Reusability & Extensibility
+
+- You can handle code reusability and extensibility by using 2 techniques
+	1. Aggregation
+	2. Inheritance
+- Reusability is the process of access the members from one class and using in another class.
+- Extensibility is the process of extending the logic without modifying the existing.
+
+Aggregation:
+- It is the process of accessing members of one class in another class without configuring any relation between classes.
+- It is known as "Object-to-Object" communication.
+- It is often reffered as "Has-A-Relation".
+
+Syntax:
+	class A
+	{
+	  // members;
+	}
+	class B
+	{
+	   //create instance of class A to access its members
+	}
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class HDFC_Version1
+        {
+            Personal = "Personal Banking Services";
+            NRI = "NRI Banking Services";
+            Print(){
+                document.write(`${this.Personal}<br>${this.NRI}<br>`);
+            }
+        }
+        class HDFC_Version2
+        {
+            Loans = "Personal and Housing Loans";
+            Print(){
+                let obj = new HDFC_Version1();
+                obj.Print();
+                document.write(`${this.Loans}<br>`);
+            }
+        }
+        class HDFC_Version3
+        {
+            AGRI = "Govt. Bank Schemes";
+            Print(){
+                let obj = new HDFC_Version2();
+                obj.Print();
+                document.write(`${this.AGRI}<br>`);
+            }
+        }
+        function InstallClick(){
+            var version = document.querySelector("select").value;
+            switch(version){
+                case "ver1": 
+                var obj1 = new HDFC_Version1();
+                document.write("<h2>Version-1 Installed</h2>");
+                obj1.Print();
+                break;
+                case "ver2": 
+                var obj2 = new HDFC_Version2();
+                document.write("<h2>Version-2 Installed</h2>");
+                obj2.Print();
+                break;
+                case "ver3": 
+                var obj3 = new HDFC_Version3();
+                document.write("<h2>Version-3 Installed</h2>");
+                obj3.Print();
+                break;
+                default: 
+                document.write("Please Select a Version");
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Install HDFC Bank App</legend>
+        <select>
+            <option value="-1">Select Version</option>
+            <option value="ver1">HDFC Version-1 [2021]</option>
+            <option value="ver2">HDFC Version-2 [2022]</option>
+            <option value="ver3">HDFC Version-3 [2023]</option>
+        </select>
+        <button onclick="InstallClick()">Install</button>
+    </fieldset>
+</body>
+</html>
+
+Inheritance:
+- It is the process of accessing members of one class in another class by configuring relation between classes.
+- You can use "extends" keyword that extends the existing class.
+- The existing class is known as "SuperClass" [base]
+- The new class is known as "Derived" class.
+
+Syntax:
+	class A
+	{
+	}
+	class B extends A				=> A is super & B is derived
+	{
+	}
+
+- You can access the members of super class using "super" keyword.
+- This is reffered as "Is-A-Relation".
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class HDFC_Version1
+        {
+            Personal = "Personal Banking Services";
+            NRI = "NRI Banking Services";
+            Print(){
+                document.write(`${this.Personal}<br>${this.NRI}<br>`);
+            }
+        }
+        class HDFC_Version2 extends HDFC_Version1
+        {
+            Loans = "Personal and Housing Loans";
+            Print(){
+                super.Print();
+                document.write(`${this.Loans}<br>`);
+            }
+        }
+        class HDFC_Version3 extends HDFC_Version2
+        {
+            AGRI = "Govt. Bank Schemes";
+            Print(){
+                super.Print();
+                document.write(`${this.AGRI}<br>`);
+            }
+        }
+        function InstallClick(){
+            var version = document.querySelector("select").value;
+            switch(version){
+                case "ver1": 
+                var obj1 = new HDFC_Version1();
+                document.write("<h2>Version-1 Installed</h2>");
+                obj1.Print();
+                break;
+                case "ver2": 
+                var obj2 = new HDFC_Version2();
+                document.write("<h2>Version-2 Installed</h2>");
+                obj2.Print();
+                break;
+                case "ver3": 
+                var obj3 = new HDFC_Version3();
+                document.write("<h2>Version-3 Installed</h2>");
+                obj3.Print();
+                break;
+                default: 
+                document.write("Please Select a Version");
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Install HDFC Bank App</legend>
+        <select>
+            <option value="-1">Select Version</option>
+            <option value="ver1">HDFC Version-1 [2021]</option>
+            <option value="ver2">HDFC Version-2 [2022]</option>
+            <option value="ver3">HDFC Version-3 [2023]</option>
+        </select>
+        <button onclick="InstallClick()">Install</button>
+    </fieldset>
+</body>
+</html>
+						    Polymorphism
+- Poly means "Many".
+- Morphos means "Forms".
+- The ability of a single component to work for various situations is reffered as Polymorphism.
+- A single base class object can use the memory of multiple derived classes.
+
+EX:
+<script>
+    class Employee
+    {
+        FirstName;
+        LastName;
+        Designation;
+        Print(){
+            document.write(`${this.FirstName} ${this.LastName} - ${this.Designation}<br>`);
+        }
+    }
+    class Developer extends Employee
+    {
+        FirstName = "Raj";
+        LastName = "Kumar";
+        Designation = "Developer";
+        Role = "Developer Role : Build, Debug, Test, Deploy";
+        Print(){
+            super.Print();
+            document.write(`${this.Role}`);
+        }
+    }
+    class Admin extends Employee
+    {
+        FirstName = "Kiran";
+        LastName = "Rao";
+        Designation = "Admin";
+        Role = "Admin Role : Authorization and Authentication";
+        Print(){
+            super.Print();
+            document.write(`${this.Role}`);
+        }
+    }
+    class Manager extends Employee
+    {
+        FirstName = "Tom";
+        LastName = "Hanks";
+        Designation = "Manager";
+        Role = "Manager Role : Approvals";
+        Print(){
+            super.Print();
+            document.write(`${this.Role}`);
+        }
+    }
+    let employees = new Array(new Developer(), new Admin(), new Manager());
+    var designation = prompt("Enter Designation");
+    for(var employee of employees){
+        if(employee.Designation==designation){
+            employee.Print();
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

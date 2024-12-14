@@ -1,0 +1,492 @@
+Headings 
+Paragraphs
+Blockquotes
+Data List
+
+						    Ordered List
+- It sets auto numbering for list of items.
+- List is defined by using <ol>
+- Items are defined by using <li>
+
+Syntax:
+<ol>
+<li> Item - 1 </li>				1. Item-1
+<li> Item - 2 </li>				2. Item-2
+</ol>
+
+- You can change numbering type by using "type" attribute set to : 1,A,a,i, I
+
+Syntax:
+<ol type="A">				
+<ol type="i">
+<ol type="a">
+<ol type="1">
+
+- You can define from where numbering have to start by using "start" attribute.
+
+Syntax:
+<ol type="1" start="51">		* start is level number.
+<ol type="A" start="5">
+
+- You can reverse the numbering by using the new attribute "reversed".
+
+Syntax:
+<ol  type="1"  reversed>
+
+- You can create nested ordered list. Every nested list must be inside <li> element.
+
+Syntax: Bad Code
+ <ol>
+   <li> Parent </li>
+    <ol type="a">
+    <li> Child </li>
+    <li> Child </li>
+    </ol>
+</ol>
+
+Syntax: Good Code
+<ol>
+ <li> Parent
+       <ol type="a"> 
+       <li> Child </li>
+       <li> Child </li>
+       </ol>
+  </li>
+</ol>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+</head>
+<body>
+   <ol type="I">
+    <li>HTML
+      <ol type="1">
+        <li>Normal Elements
+          <ol type="a">
+            <li>Bold</li>
+            <li>Italics</li>
+          </ol>
+        </li>
+        <li>Void Elements</li>
+      </ol>
+    </li>
+      <li>CSS
+        <ol type="1">
+          <li>Selectors</li>
+          <li>Units</li>
+        </ol>
+      </li>
+   </ol>
+</body>
+</html>
+
+FAQ's:
+1. How to arrange list items side by side?
+A. By using display:flex  or display:inline
+
+	flex		: It is used for <ol> with numbering
+	inline	: It is used for <li>  without numbering
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+     .options {
+      display: flex;
+     }
+     .options li {
+        margin-right: 50px;
+     }
+  </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Question _____________ ?
+          <ol type="a" class="options">
+            <li>option-1</li>
+            <li>option-2</li>
+            <li>option-3</li>
+            <li>option-4</li>
+          </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+Syntax:
+	.options  li {
+	   display:inline
+	}
+
+2. How to keep list items in multiple columns?
+A. By using 2 style attributes
+	a) display:grid			sets numbering order left to right
+	b) columns			sets numbering order top to bottom
+
+	Grid
+		1			2
+		3			4
+
+	Columns
+		1			3
+		2			4
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+    .options {
+       display: grid;
+       grid-template-columns: 6fr 6fr;
+    }
+  </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Question _____________ ?
+          <ol type="a" class="options">
+            <li>option-1</li>
+            <li>option-2</li>
+            <li>option-3</li>
+            <li>option-4</li>
+          </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+    .options {
+       columns:2;
+    }
+  </style>
+</head>
+<body>
+    <ol type="1">
+        <li>Question _____________ ?
+          <ol type="a" class="options">
+            <li>option-1</li>
+            <li>option-2</li>
+            <li>option-3</li>
+            <li>option-4</li>
+          </ol>
+        </li>
+    </ol>
+</body>
+</html>
+
+3. How to create a scrollable list?
+A. By using following CSS attributes
+	- border
+	- height
+	- overflow
+
+Syntax:
+	ol {
+	    border:1px solid gray;
+	    width:100px;
+	    height:60px;
+	    overflow: auto;
+	}
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+     ol {
+       border:1px solid gray;
+       width: 100px;
+       height: 60px;
+       overflow: auto;
+     }
+  </style>
+</head>
+<body>
+    <ol type="1">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+      <li>JavaScript</li>
+      <li>jQuery</li>
+      <li>Angular</li>
+      <li>React</li>
+    </ol>
+</body>
+</html>
+
+4. How to remove numbering for ordered list?
+A. By using "list-style" attribute set to "none".
+
+Syntax:
+	ol {
+	    list-style :none;
+	}
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+     ol {
+       list-style: none;
+     }
+     li {
+      background-color: gray;
+      color:white;
+      margin-bottom: 5px;
+      padding: 4px;
+      width: 100px;
+     }
+     li:hover {
+       background-color: black;
+       cursor: grab;
+     }
+  </style>
+</head>
+<body>
+    <ol type="1">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+      <li>JavaScript</li>
+      <li>jQuery</li>
+      <li>Angular</li>
+      <li>React</li>
+    </ol>
+</body>
+</html>
+
+						Unordered List
+- It sets a bulleted list.
+- List is defined with <ul>
+- Items are defined with <li>
+- List type can be "circle, square or disc".
+
+Syntax:
+  <ul type="square">
+    <li> Item - 1 </li>
+    <li> Item - 2 </li>
+  </ul>
+
+- To set a custom symbol as bullet symbol you have to use  "list-style-image" of CSS.
+
+Syntax:
+1. Create a new image with 20x20 pixes  in ms-paint 
+2. Draw and save your icon as "GIF" type.    [your project images folder]
+		star.gif
+3. Set for <ul>
+
+	ul {
+	  list-style-image: url ("images/star.gif");
+	}
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <style>
+     ul {
+       list-style-image: url("images/star.gif");
+       font-size: 24px;
+     }
+  </style>
+</head>
+<body>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Bootstrap</li>
+      <li>JavaScript</li>
+      <li>jQuery</li>
+      <li>Angular</li>
+      <li>React</li>
+    </ul>
+</body>
+</html>
+
+FAQ: How to define different symbols for list items in unordered list?
+And: 
+	1. Remove bulleted symbol which is by default set for list.
+	2. For every list item you can use bootstrap-icons
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+   <ul>
+      <li class="bi bi-facebook"> Facebook </li>
+      <li class="bi bi-twitter"> Twitter </li>
+      <li class="bi bi-instagram"> Instagram </li>
+      <li class="bi bi-linkedin"> Linkedin </li>
+   </ul>
+</body>
+</html>
+
+- You can create a nested bullets list or assorted with number and bullets.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+   <ul>
+      <li>HTML
+        <ul type="square">
+          <li>Normal
+             <ol type="a">
+               <li>Bold</li>
+               <li>Italics</li>
+             </ol>
+          </li>
+          <li>Void</li>
+        </ul>
+      </li>
+      <li>CSS</li>
+   </ul>
+</body>
+</html>
+
+					Text Formatting in HTML
+1. Font
+    It can change the face, size and color.
+
+   <font  face="Arial"  size="4"  color="red">  Your Text </font>
+
+    face		: It refers to font family name
+    size		: It refers to level number from 1 to 7.
+    color		: It refers to any color name or hexa code.
+
+Note: W3C standards is not recommending to use <font> in modern web.
+
+FAQ: What are web safe fonts?
+Ans:  serif, sans-serif, monospace
+
+Note: They are known as web safe font, as they are available to all devices.
+	  If any font is missing in client device then your custom fonts are transformed into
+	  web-safe fonts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

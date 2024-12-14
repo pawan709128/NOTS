@@ -1,0 +1,290 @@
+Summary
+- Image Types supported for web
+	APNG
+	PNG
+	JPEG
+	GIF
+	TIFF
+	BMP
+	ICO
+	SVG
+	WebP
+
+5. TIFF			It is sliced image format, mostly used for scanned documents
+				[.tiff]
+
+6. BMP			It is binary format image. [Bitmap]
+
+7. ICO			It is used for icons [favicon].
+
+8. WebP			It is image embedded into page, so that you can't directly save
+			 	image. It saves entire page.
+
+
+						Embed Image into Page
+
+- HTML provides <img> token for embedded images.
+
+Attributes:
+1. src			: It defines the path and name of image.
+
+Syntax:	
+	<img src="images/pic.jpg">
+
+2. alt			: It defines the alternative text to display when image fails to load.
+
+Syntax:
+	<img src="images/pic.jpg" alt="please enable images on your browser">
+
+3. title			: It defines the tooltip to display when mouse pointer is over image.
+
+Syntax:
+	<img src="images/pic.jpg"  alt="image here.."  title="some tips about image">
+
+	<span title="Hyper Text Markup Language"> HTML *</span>
+
+4. width & height	: Defines the dimensions for image. Fluid images are defined
+				  by using dimensions specified with "%".
+
+Syntax:
+	<img src="images/pic.jpg"  width="70%"  height="40%">	Fluid
+	<img src="images/pic.jpg"  width="700" height="400"> 	Not fluid
+
+5.  align			: It is used to align image left or right by wrapping the text around.
+
+Syntax:
+	<img src="images/pic.jpg"  width="100" height="100"  align="right | left">
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .site-title {
+            font-size: 50px;
+            font-family: Arial;
+            width: 50%;
+            margin-top: 50px;
+        }
+        .site-subtitle {
+            font-size: 25px;
+            font-family: Arial;
+            width: 50%;
+            margin-top: 40px;
+            text-align: justify;
+        }
+        .tip {
+            color:blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <main>
+       
+        <div>
+            <img src="images/work-banner.jpg" width="50%" align="right">
+        </div>
+        <div>
+            <div class="site-title">
+                Welcome to <span class="tip">Landkit</span>.
+                Develop anything.
+            </div>
+            <div class="site-subtitle">
+                Build a beautiful, modern website with flexible Bootstrap components built from scratch.
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+
+6. vspace & hspace	: It sets horizontal and vertical space between text & image.
+
+Syntax:
+   <img src="images/pic.jpg"  align="right"  hspace="50"  vspace="40">
+
+
+Advanced Attributes:
+1. crossorigin [CORS]  Cross Origin Resource Sharing
+
+Syntax:
+	<img  src="...cdn...path.."   crossorigin="use-credentials | anonymous">
+
+
+2. decoding : It defines how an image have to load along with other content in page.
+		      It have the techniques : sync, async, auto
+
+
+Syntax:
+	<img src="images/pic.jpg"  decoding="sync | async | auto">
+
+3. importance:  It sets priority for image in page, which can be low, medium, high, auto.
+
+Syntax:
+	<img src="images/pic.jpg"  importance="low | medium | high | auto">
+
+4. srcset		: It is used to define a set of images, which can change randomly.
+
+Syntax:
+	<img srcset="array of images">
+
+
+Ex: Flipkart product page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart-Mobiles</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .product {
+            display: grid;
+            grid-template-columns: 2fr 7fr 3fr;
+            grid-gap: 20px;
+        }
+        ul {
+            margin-left: -25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .rating{
+            background-color: green;
+            color:white;
+            padding: 3px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Websites are hosted on <span title="Server resembles both hardware and software that satisfies the client request by sending and receving data.">Server*</span>.
+    </div>
+    <font face="Arial">
+    <div class="product">
+        
+        <div>
+            <img src="images/realme.jpg" title="30% OFF on Realme Mobiles" alt="Please enable images on your browser">
+        </div>
+        <div>
+            <h2><font color="blue">realme C55 (Rainforest, 128 GB)</font></h2>
+            <div>
+                <span class="rating"> 4.4 <span class="bi bi-star-fill"></span> </span> <span class="reviews"> <b><font color="gray"> 17,000 reviews & 500 ratings</font></b> </span>
+            </div>
+            <div>
+                <font color="gray">
+                    <ul>
+                        <li>8 GB RAM | 128 GB ROM | Expandable Upto 1 TB</li>
+                        <li>17.07 cm (6.72 inch) Full HD+ Display</li>
+                        <li>64MP + 2MP | 8MP Front Camera</li>
+                        <li>5000 mAh Battery</li>
+                        <li>Helio G88 Processor</li>
+                        <li>1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In the Box Accessories</li>
+                    </ul>
+                </font>
+            </div>
+        </div>
+        <div>
+            <h1>&#8377; 13,999</h1>
+            <div>
+                <span><strike>15,999</strike></span> 
+                <span><font color="green">12% Off</font></span>
+            </div>
+            <br>
+            <div>
+                Free delivery by <b>Today</b>
+            </div>
+            <br>
+            <div>
+                <font color="green"><b>Bank Offer</b></font>
+            </div>
+        </div>
+    
+    </div>
+    <hr size="2" noshade color="gray">
+    <div class="product">
+        
+        <div>
+            <img src="images/realme.jpg" alt="Image here..">
+        </div>
+        <div>
+            <h2><font color="blue">realme C55 (Rainforest, 64 GB)</font></h2>
+            <div>
+                <span class="rating"> 4.4 <span class="bi bi-star-fill"></span> </span> <span class="reviews"> <b><font color="gray"> 17,000 reviews & 500 ratings</font></b> </span>
+            </div>
+            <div>
+                <font color="gray">
+                    <ul>
+                        <li>8 GB RAM | 64 GB ROM | Expandable Upto 1 TB</li>
+                        <li>17.07 cm (6.72 inch) Full HD+ Display</li>
+                        <li>64MP + 2MP | 8MP Front Camera</li>
+                        <li>5000 mAh Battery</li>
+                        <li>Helio G88 Processor</li>
+                        <li>1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In the Box Accessories</li>
+                    </ul>
+                </font>
+            </div>
+        </div>
+        <div>
+            <h1>&#8377; 11,999</h1>
+            <div>
+                <span><strike>15,999</strike></span> 
+                <span><font color="green">12% Off</font></span>
+            </div>
+            <br>
+            <div>
+                Free delivery by <b>Today</b>
+            </div>
+            <br>
+            <div>
+                <font color="green"><b>Bank Offer</b></font>
+            </div>
+        </div>
+    
+    </div>
+</font>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

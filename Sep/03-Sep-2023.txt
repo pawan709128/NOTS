@@ -1,0 +1,602 @@
+Evolution of OOP
+- Alan Kay introduced the concept of object into computer programming in early 1960's.
+- In early 1967 Johan Olay, Kristian Nygaard developed OOP with a language called "SIMULA 67".
+- SIMULA introduced code reusability.
+- In early 1970's Trygve introduced the concept of code separation with a framework called MVC. [Model View Controller]. It was formulated with Small Talk language.
+- In early 1975 C++ 
+- In early 1990 Java
+- In early 2003 C#
+
+					        JavaScript Modules
+- A module is a set of values, functions and classes, which you can import and use across various locations.
+- It enables code reusability and extensibility.
+- You can build a JavaScript library using modules.
+- In order to use modules you need a module system installed.
+- There are various JavaScript module systems.
+
+		a) Common JS
+		b) Require JS
+		c) UMD (Universal Module Distribution)
+		d) AMD (Asynchronous Module Distribution)
+		e) ESModule
+
+- If you are running JavaScript in browser with HTML page then browser have a default module system called "ESModule"
+
+Syntax:
+		<script   type="module">
+
+		</script>
+
+Creating a new Module:
+1. Go to "src" and add  "library/modules"  folders
+
+2. Add a new file into modules folder
+
+		"home.module.js"	=> module name is "home.module"
+
+3. You can configure variables, functions and classes in module, but every member in module is private in access. If you want to access from remote location, then they must be marked with "export" keyword.
+
+		export const name = "";
+		export function name() { };
+		export class Name {  }
+
+    Every module can have one "default" export. 
+	
+		export default function name() {  }
+		
+    Default enables eager loading of a function or class.
+
+4. You have to import the module and its member into HTML page by using "import" statement. [other module systems have different statements]
+
+	 import  defaultMember,  { others }  from  "moduleName";
+	 import  Welcome, { Hello } from  "home.module.js"
+
+	 document.querySelector("p").innerHTML = Welcome();
+	 alert(Hello());
+	 console.log(Welcome());
+
+Ex:
+1. Add following files into modules folder
+
+		home.module.js
+var userName = "John";
+
+export function Hello(){
+    return `Hello ! ${userName}`;
+}
+
+export default function Welcome(){
+    return `Welcome to JavaScript`;
+}
+
+		math.module.js
+
+export function Addition(a,b) {
+    return a + b;
+}
+
+3. Add a new HTML page
+
+		home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+         import Welcome, {Hello} from "../src/library/modules/home.module.js";
+         import { Addition } from "../src/library/modules/math.module.js";
+
+         document.querySelector("p").innerHTML = Hello() + "<br>" + Welcome() + "<br>Addition=" + Addition(20,40);
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>
+
+							Classes
+- In computer programming class is a program template. 
+- A template provides sample data and logic which you can customize and implement according to requirements.
+- If a class is mapping to data requirements then it is refered as "Model".
+- If a class is mapping to business requirements then it is refered as "Entity".
+- If a class is acting a source for several instances then it is refered as "Blue Print".
+
+Configuring class:
+1. Declaration
+	class  Name
+	{
+	}
+
+2. Expression
+
+	const  Name = class { 
+	
+	 }
+
+Class Members:
+- Every JavaScript class can have only the following as class members
+
+	1. Property
+	2. Accessor
+	3. Constructor
+	4. Method
+
+FAQ: Can we define variable or function as class member?
+Ans: No.
+
+FAQ: Can we define a variable or function in class?
+Ans:  Yes
+
+FAQ: Why function and variables are not allowed as class members?
+Ans:  Variable and Function are immutable.
+	  A class member must be always mutable. 
+	  Hence variable and function can't be class member.
+
+Accessing class members:
+- The class members are accessible with in the class using "this" keyword.
+- The class members are accessible outside class by using instance of class.
+
+Syntax:
+	class  Employee
+	{
+	}
+	let  obj = new Employee();
+	obj.Property;
+	obj.Method();
+
+						          Property
+- A property is used to store data.
+- In JavaScript class property is having just a reference name.
+- You can initialize any type of value.
+- You can assign any type of value using instance of class.
+
+Syntax:
+	class Product
+	{
+	    Name = "TV";		=> number, string, boolean, null, undefined, array, obj...
+	}
+	let  obj = new Product();
+	obj.Name = "Samsung TV;
+	console.log(obj.Name);
+
+- Property is mutable.
+- A property can change the behaviour dynamically according to state and situation.
+
+						     Accessors
+- Accessors are used to give fine grained control over the property.
+- They allow to handle read and write operations on a property.
+- There are 2 accessors
+	a) get()		gettter is used to read and return value of property
+	b) set()		settter is used to assign a new value into property
+
+Syntax:
+	get  aliasName()
+	{
+	  return property;
+	}
+	set aliasName(newValue)
+	{
+	  property = newValue;
+	}
+	
+Ex:
+Evolution of OOP
+- Alan Kay introduced the concept of object into computer programming in early 1960's.
+- In early 1967 Johan Olay, Kristian Nygaard developed OOP with a language called "SIMULA 67".
+- SIMULA introduced code reusability.
+- In early 1970's Trygve introduced the concept of code separation with a framework called MVC. [Model View Controller]. It was formulated with Small Talk language.
+- In early 1975 C++ 
+- In early 1990 Java
+- In early 2003 C#
+
+					        JavaScript Modules
+- A module is a set of values, functions and classes, which you can import and use across various locations.
+- It enables code reusability and extensibility.
+- You can build a JavaScript library using modules.
+- In order to use modules you need a module system installed.
+- There are various JavaScript module systems.
+
+		a) Common JS
+		b) Require JS
+		c) UMD (Universal Module Distribution)
+		d) AMD (Asynchronous Module Distribution)
+		e) ESModule
+
+- If you are running JavaScript in browser with HTML page then browser have a default module system called "ESModule"
+
+Syntax:
+		<script   type="module">
+
+		</script>
+
+Creating a new Module:
+1. Go to "src" and add  "library/modules"  folders
+
+2. Add a new file into modules folder
+
+		"home.module.js"	=> module name is "home.module"
+
+3. You can configure variables, functions and classes in module, but every member in module is private in access. If you want to access from remote location, then they must be marked with "export" keyword.
+
+		export const name = "";
+		export function name() { };
+		export class Name {  }
+
+    Every module can have one "default" export. 
+	
+		export default function name() {  }
+		
+    Default enables eager loading of a function or class.
+
+4. You have to import the module and its member into HTML page by using "import" statement. [other module systems have different statements]
+
+	 import  defaultMember,  { others }  from  "moduleName";
+	 import  Welcome, { Hello } from  "home.module.js"
+
+	 document.querySelector("p").innerHTML = Welcome();
+	 alert(Hello());
+	 console.log(Welcome());
+
+Ex:
+1. Add following files into modules folder
+
+		home.module.js
+var userName = "John";
+
+export function Hello(){
+    return `Hello ! ${userName}`;
+}
+
+export default function Welcome(){
+    return `Welcome to JavaScript`;
+}
+
+		math.module.js
+
+export function Addition(a,b) {
+    return a + b;
+}
+
+3. Add a new HTML page
+
+		home.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+         import Welcome, {Hello} from "../src/library/modules/home.module.js";
+         import { Addition } from "../src/library/modules/math.module.js";
+
+         document.querySelector("p").innerHTML = Hello() + "<br>" + Welcome() + "<br>Addition=" + Addition(20,40);
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>
+
+							Classes
+- In computer programming class is a program template. 
+- A template provides sample data and logic which you can customize and implement according to requirements.
+- If a class is mapping to data requirements then it is refered as "Model".
+- If a class is mapping to business requirements then it is refered as "Entity".
+- If a class is acting a source for several instances then it is refered as "Blue Print".
+
+Configuring class:
+1. Declaration
+	class  Name
+	{
+	}
+
+2. Expression
+
+	const  Name = class { 
+	
+	 }
+
+Class Members:
+- Every JavaScript class can have only the following as class members
+
+	1. Property
+	2. Accessor
+	3. Constructor
+	4. Method
+
+FAQ: Can we define variable or function as class member?
+Ans: No.
+
+FAQ: Can we define a variable or function in class?
+Ans:  Yes
+
+FAQ: Why function and variables are not allowed as class members?
+Ans:  Variable and Function are immutable.
+	  A class member must be always mutable. 
+	  Hence variable and function can't be class member.
+
+Accessing class members:
+- The class members are accessible with in the class using "this" keyword.
+- The class members are accessible outside class by using instance of class.
+
+Syntax:
+	class  Employee
+	{
+	}
+	let  obj = new Employee();
+	obj.Property;
+	obj.Method();
+
+						          Property
+- A property is used to store data.
+- In JavaScript class property is having just a reference name.
+- You can initialize any type of value.
+- You can assign any type of value using instance of class.
+
+Syntax:
+	class Product
+	{
+	    Name = "TV";		=> number, string, boolean, null, undefined, array, obj...
+	}
+	let  obj = new Product();
+	obj.Name = "Samsung TV;
+	console.log(obj.Name);
+
+- Property is mutable.
+- A property can change the behaviour dynamically according to state and situation.
+
+						     Accessors
+- Accessors are used to give fine grained control over the property.
+- They allow to handle read and write operations on a property.
+- There are 2 accessors
+	a) get()		gettter is used to read and return value of property
+	b) set()		settter is used to assign a new value into property
+
+Syntax:
+	get  aliasName()
+	{
+	  return property;
+	}
+	set aliasName(newValue)
+	{
+	  property = newValue;
+	}
+Ex:
+<script>
+    var userName = prompt("Enter User Name");
+    var role = prompt("Enter Your Role","customer|admin|manager");
+    var productname = prompt("Enter New Name for Product");
+
+    class Product
+    {
+        _productName;
+
+        get ProductName(){
+            return this._productName;
+        }
+        set ProductName(newName){
+            if(role==="admin"){
+                this._productName = newName;
+            } else {
+                document.write(`Unauthorized : Hello ${userName} your role ${role} is not authorized to set name`);
+            }
+        }
+    }
+    let obj = new Product();
+    obj.ProductName = productname;
+    if(obj.ProductName){
+        document.write(`Product Name : ${obj.ProductName}`);
+    }
+</script>
+
+Ex:
+<script>
+    class Product
+    {
+        Name = "Samsung TV";
+        Rating = {
+            VendorRating: {
+                DirectVendor : {Rate:4.2, Count:3200},
+                InDirectVendor: {Rate:4.5, Count: 500}
+            }
+        }
+        get InDirectVendorRating(){
+            return this.Rating.VendorRating.InDirectVendor.Rate;
+        }
+        set InDirectVendorRating(newRating){
+            this.Rating.VendorRating.InDirectVendor.Rate = newRating;
+        }
+    }
+    let obj = new Product();
+    obj.InDirectVendorRating = 5;
+    document.write("Rating=" + obj.InDirectVendorRating);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

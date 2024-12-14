@@ -1,0 +1,237 @@
+Q1: Write a regular expression to validate user name 4 to 15 chars alpha numeric.
+A:
+	<input type="text" name="UserName"  pattern="[A-Za-z0-9]{4,15}" >
+
+
+Q2: Write a regular expression to validate Bank IFSC code.
+
+			SBIN00003235
+
+        <input type="text" name="IFSC"  pattern="SBIN0000\d{4}">
+
+
+Q3. Write a regular expression to validate 10 digits mobile number starting with +91.
+
+	<input type="text" name="mobile"  pattern="\+91\d{10}">
+
+
+Q4. Write a regular expression to validate US mobile format
+
+				+(1)(425) 555-0100
+
+	<input type="text" name="mobile"  pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}">
+
+Q4. UK mobile format
+
+				+(44)(20) 1234 5678 
+
+
+	<input type="text" name="mobile" pattern="\+\(44\)\(\d{2}\)\s\d{4}\s\d{4}">
+
+
+- You can implement pre-defined expressions
+
+	(?=.*[A-Z])			Atleast one uppercase letter
+	(?=.*[a-z])			Atleast one lowercase letter
+	(?=.*[0-9])			Atleast one number
+	(?=.*[!@#$%])			Atleast one special character
+
+Q5. write a pattern to validate user name 4 to 15 chars alpha numeric with atleast one uppercase letter.
+
+	<input type="text" name="UserName" pattern="(?=.*[A-Z])[a-zA-Z0-9]{4,15}">
+
+Q6. write a pattern for username 4 to 15 word chars with atleast 1 uppercase letter and 1 number.
+
+	<input type="text" pattern="(?=.*[A-Z])(?=.*[0-9])\w{4,15}" name="str">
+
+
+Q7. write a pattern for username 4 to 15 chars alpha numeric and special chars, with atleast one special character.
+
+			pattern="(?=.*[!@#$%&])[a-zA-Z0-9_!@#$%&]{4,15}"
+
+			pattern="(?=.*[!@#$%&])[\w\W]{4,15}"
+
+Q8. Write	 a pattern for user name 4 to 15 with atleast 1 number, uppercase letter and special char.
+
+			pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&])[\w\W]{4,15}"
+
+
+Note: You can ignore the case of any text content by using "\i" meta character
+
+			pattern="color\i"
+
+	   You can use CSS validation classes to show error messages 
+			a) valid
+			b) invalid
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Mobile:valid+div {
+            display: none;
+        }
+        .Mobile:invalid+div {
+            display: block;
+            color:red;
+        }
+        .UserName:valid+div {
+            display: none;
+        }
+        .UserName:invalid+div {
+            display: block;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>User Name</dt>
+            <dd>
+                <input type="text" name="UserName" class="UserName" required>
+                <div>User Name Required</div>
+            </dd>
+            <dt>Your Mobile</dt>
+            <dd>
+                <input type="text" class="Mobile" placeholder="eg: +(1)(425) 555-0100" pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}" name="str"> 
+                <div>Invalid Mobile : US Mobile Format +(1)(425) 555-0100</div>
+            </dd>
+        </dl>
+        
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Mobile:valid+div {
+            display: none;
+        }
+        .Mobile:invalid+div {
+            display: block;
+            color:red;
+        }
+        .UserName:valid+div {
+            display: none;
+        }
+        .UserName:invalid+div {
+            display: block;
+            color:red;
+        }
+        .Mobile:invalid {
+            border:2px solid red;
+            box-shadow: 2px 2px 2px red;
+        }
+        .Mobile:valid {
+            border:2px solid green;
+            box-shadow: 2px 2px 2px green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <dl>
+            <dt>User Name</dt>
+            <dd>
+                <input type="text" name="UserName" class="UserName" required>
+                <div>User Name Required</div>
+            </dd>
+            <dt>Your Mobile</dt>
+            <dd>
+                <input type="text" class="Mobile" placeholder="eg: +(1)(425) 555-0100" pattern="\+\(1\)\(\d{3}\)\s\d{3}-\d{4}" name="str"> 
+                <div>Invalid Mobile : US Mobile Format +(1)(425) 555-0100</div>
+            </dd>
+        </dl>
+        
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

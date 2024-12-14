@@ -1,0 +1,351 @@
+Summary
+- Header
+- Footer
+- Section
+- Main
+- Aside
+- Article
+- Nav
+- Div
+- Span
+
+						     	Dialog
+- It is used to design pop-up content in page.
+- It is hidden in state and you can open when required by using "open" attribute.
+
+Syntax:
+	<dialog open>
+	    ....your content...
+	</dialog>
+
+							Figure
+- It is used to display images and graphics with caption.
+- "Figcaption" makes the image SEO friendly.
+
+Syntax:
+	<figure>
+		... your image...
+		
+	   <figcaption> Caption </figcaption>
+
+	</figure>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog</title>
+    <style>
+        figure {
+            border:1px solid black;
+            height: 300px;
+            width: 300px;
+            padding: 20px;
+        }
+        figure div {
+            border:1px dotted black;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <div>
+
+        </div>
+        <figcaption>Fig-1: HTML Architecture</figcaption>
+    </figure>
+</body>
+</html>
+
+				      HTML Body Semantics & Entities  
+
+1. Line Break			: It is defined by using <br>
+
+
+FAQ: What is difference between <br> & <br /> ?
+Ans:  There is no <br /> in HTML. It is just developers tradition to define self ending elements [void elements].
+	  Functionally <br> and <br /> will be similar.
+
+2. Blank Spaces		: They are defined by using "&nbsp;"  [non-breakable-space]
+
+Syntax:
+	H &nbsp; &nbsp; T  M L
+
+3. Preformatted Text	: It is defined by using <pre> element.
+					  It keeps the formats in page exactly as defined in editor.
+
+Syntax:
+	<pre>
+	      line-1
+	      line-2
+	      line-3
+	</pre>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        pre {
+            background-color: black;
+            color:white;
+            padding: 20px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>Sample C Program</div>
+    <div>
+       <pre>
+        #include &lt;stdio.h&gt;
+        main()
+        {
+            printf("Welcome to C Programming");
+        }
+       </pre>
+    </div>
+</body>
+</html>
+
+4. Variables				: They are defined by using <var>  element
+
+5. Sample Text			: It is defined by using <samp> element
+
+6. Code Block				: It is defined by using <code> element
+
+7. Large Text				: It is defined by using <big> element
+
+8. Small Text				: it is defined by using <small> element
+
+
+Syntax: Variables
+	<var> x  </var> = 10;
+
+Syntax:  Code
+	<code>
+	     class   demo
+	     {
+		
+	     }
+	</code>
+
+Syntax: Sample Text
+
+	<samp> Write a program to print array elements. </samp>
+
+Syntax: Text Size
+
+	  <big> Title </big>
+	  <small> Sub Title </small>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       code {
+          color:red;
+       }
+       var {
+        color:gray;
+       }
+       samp {
+        color:green;
+       }
+    </style>
+</head>
+<body>
+    <div><big>Java Program</big></div>
+    <div><small>Java Program</small></div>
+    <div>
+        String[] <var>chocolate</var> = {"Ferrero Rocher", "Alpenliebe", "Cadbury"};
+    </div>
+    <div>
+       <var>Z</var> = <var>X</var> + <var>Y</var>
+    </div>
+    <div>
+       <pre>
+        <code>
+            class Codechef
+            {
+                public static void main (String[] args)
+                {
+                    // your code goes here
+                    ___ num = {1, 2, 3, 4, 5};
+                    System.out.print("Done");
+                    
+                }
+            }    
+        </code>
+       </pre>
+       <div>
+        <samp>
+            Arrays are used to store multiple values in a single variable, <br> instead of declaring separate variables for each value.
+        </samp>
+       </div>
+    </div>
+</body>
+</html>
+
+
+	9. Details & Summary		: It is used to create expandable and collapsable 
+							  content.
+
+Syntax:
+	<details>
+	       <summary> Title </summary>
+		..........
+		....your content......
+	</details>
+
+Ex:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        details span{
+            display: block;
+            margin-bottom: 20px;
+            background-color: darkcyan;
+            color:white;
+            padding: 5px;
+            width: 100px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>Home</div>
+        <div>
+            <details open>
+                <summary>Electronics</summary>
+                <span>Mobiles</span>
+                <span>Televisions</span>
+                <span>Watches</span>
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Footwear</summary>
+                <span>Casuals</span>
+                <span>Sneakers</span>
+                <span>Boots</span>
+            </details>
+        </div>
+    </nav>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        details div{
+            display: block;
+            margin-top: 20px;
+            background-color: black;
+            color:white;
+            padding: 5px;
+            width: 50vw;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        summary {
+            background-color: black;
+            color:white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <details open>
+      <summary>What is Netflix?</summary>
+      <div>
+        Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+      </div>
+   </details>
+   <details>
+    <summary>How much does Netflix cost?</summary>
+    <div>
+      Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+    </div>
+ </details>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,407 @@
+1. Line Break
+2. Blank Space
+3. Preformatted
+4. Code
+5. Var
+6. Samp
+7. Big
+8. Small
+9. Details
+10. Summary
+
+						 Headings in HTML
+
+- Headings are defined by using <hn> element, where "n" refers to level number 1 to 6.
+
+Syntax:
+	<h1> Heading-1 </h1>
+	<h2> Heading-2 </h2>
+	..............
+	..............
+	<h6> Heading-6 </h6>
+
+FAQ: We can format any text as heading without using heading styles, then why to use heading element?
+Ans : To make headings SEO friendly, so that web spiders can make summary of topics
+	  in page.
+
+FAQ: Can we modify the heading text by using styles?
+Ans: Yes. It includes font-styles, size etc.
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     h1 {
+       font-family: Brush Script MT;
+       font-size: 50px;
+     }
+  </style>
+</head>
+<body>
+   <h1>Web Technologies</h1>
+   <h2>HTML</h2>
+   It is a markup language. 
+   <h2>CSS</h2>
+   It defines styles for HTML.
+   <h2>JavaScript</h2>
+   It manipulates DOM. 
+</body>
+</html>
+
+FAQ: Can we remove any specific style defined for heading?
+Ans:  Yes. By using CSS "unset" value.
+
+Syntax: Specific
+	h1 {
+	    font-weight:unset;		
+	    font-size:unset;
+	    display:unset;
+	}
+Syntax: All
+	h1 {
+	   all:unset;
+	}
+
+Note: 
+1. Don't use too many headings in web page. It may SPAM your page.
+2. Don't use headings for highlighting any word or sentence in a paragraph.
+    It may cause voilation of SEO rules.
+
+Syntax:  Not Good Code
+<body>
+   HTML is a <h5>markup</h5> language.
+</body>
+
+					Paragraphs & Blockquotes
+
+- The paragraphs are defined by using <p> element.
+- Blockquote is similar to paragraph but have left and right padding.
+- Blockquote is used for summarize the content in page. <blockquote>
+- Paragraphs and Blockquotes designate a container, which can be aligned in page.
+
+Syntax:
+	<p align="center"> some  text </p>
+	<blockquote align="center">
+		.........
+		text
+		........
+	</blockquote>
+
+FAQ: How to set firstline indent for paragraph?
+Ans:  By using CSS attribute "text-indent" 
+
+Syntax:
+	p {
+	   text-indent : 200px;
+	}
+
+FAQ: How to set space between lines, words and chars in paragraph?
+Ans:  By using following CSS attributes
+		line-height
+		word-spacing
+		letter-spacing
+
+Syntax:
+	p {
+	    line-height : 25px;
+	    word-spacing: 10px;
+	    letter-spacing: 5px;
+	}
+
+FAQ: How to set DropCap for paragraph?
+Ans:  By using CSS class "::first-letter" and CSS attributes like "size and float".
+
+Syntax:
+	p :: first-letter {
+	    font-size : 55px;
+	    font-family: Algerian;
+	    float : left;
+	}
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     blockquote {
+      padding-left: 300px;
+      padding-right: 300px;
+      font-style: italic;
+      color:gray;
+     }
+      .para-1::first-letter {
+        font-size: 55px;
+        font-family: Algerian;
+        float: left;
+        padding-right: 5px;
+        color:blue;
+     }
+  </style>
+</head>
+<body>
+  <blockquote align="justify">
+    The Microsoft Services Agreement is an agreement between you and Microsoft (or one of its affiliates) that governs your use of Microsoft consumer online products and services.
+  </blockquote>
+  <p class="para-1" align="justify">We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+  <p align="justify">We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+  <p align="justify">We understand that you may have questions about the Microsoft Services Agreement. We have an FAQ page (https://www.microsoft.com/en-us/servicesagreement/upcoming-faq.aspx) that provides more information, including what Microsoft products and services it covers. Whenever we make changes, we provide a summary of the most notable changes to the current Microsoft Services Agreement. We will also continue to provide a summary of the changes to the previous version, and a link to the previous version, of the Microsoft Services Agreement on the Summary of Changes (https://www.microsoft.com/en-us/servicesagreement/upcoming-updates.aspx) page.</p>
+
+
+</body>
+</html>
+	   
+				Data List with Terms and Definitions
+- A data list is defined by usning <dl> element.
+- List contains terms defined with <dt> element.
+- Every term comprises of definition defined with <dd> element.
+
+Syntax:
+<dl>
+   <dt> Term - 1 </dt>
+   <dd> Definition </dd>
+   <dt> Term - 2 </dt>
+   <dd> Definition </dd>
+</dl>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dt {
+            font-weight: bold;
+            background-color: gray;
+            color:white;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+       <dt> HTML </dt>
+       <dt> Markup Language</dt>
+       <dd>It is markup language. </dd>
+       <dd>It is used for presentation.</dd>
+       <dt>CSS</dt>
+       <dd>It defines styles.</dd>
+       <dt>JavaScript</dt>
+       <dd>It manipulates DOM.</dd>
+    </dl>
+</body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dt {
+            font-weight: bold;
+            background-color: gray;
+            color:white;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        dl {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            grid-gap: 15px;
+        }
+        dd {
+            background-color: lightgray;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>First Name</dt>
+        <dd>Some Name</dd>
+        <dt>Last Name</dt>
+        <dd>Some Name</dd>
+        <dt>Age</dt>
+        <dd>Some Name</dd>
+        <dt>Address</dt>
+        <dd>Some contact</dd>
+    </dl>
+</body>
+</html>
+
+FAQ: How to design sticky data terms?
+Ans: By using CSS  "Position:sticky"
+
+Syntax:
+  dt {
+	position:sticky;
+        top:0px
+   }
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       dt {
+         background-color: black;
+         color:white;
+         padding: 5px;
+         width: 200px;
+         position: sticky;
+         top: 0px;
+       }
+    </style>
+</head>
+<body>
+  <h1>Shopper.</h1>
+   <nav>
+     <dl>
+        <dt>Electronics</dt>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dd>Mobiles</dd>
+        <dd>Televisions</dd>
+        <dd>Watches</dd>
+        <dt>Footwear</dt>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dd>Casuals</dd>
+        <dd>Sneakers</dd>
+        <dd>Boots</dd>
+        <dt>Fashion</dt>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+        <dd>Men's Clothing</dd>
+        <dd>Kids Fashion</dd>
+        <dd>Women Clothing</dd>
+
+     </dl>
+   </nav>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,312 @@
+- What is a Function?
+- Function Declaration
+	function Name()
+	{
+	}
+- Function Expression
+	var name = function(){
+	}
+- Function Configuration
+	a) Declaration
+	b) Signature
+	c) Definition
+- Function Parameters
+	a) Formal
+	b) Actual
+
+						Parameter Type
+- A function parameter can be any type
+	a) Primitive
+	b) Non Primitive
+	c) Function
+- In JavaScript formal parameter is just a reference name, into the parameter you can store anything.
+
+Syntax:
+	function demo(ref)		=> ref => number, string, boolean, array, object
+	{
+	}
+	demo(1);
+	demo("TV");
+	demo(true);
+	demo([ ]);
+	demo({ });
+	demo([{ }, { }]);
+	demo(function(){ });
+
+Ex:
+<script>
+   function Demo(collection){
+      collection.map(function(item){
+        document.write(item + "<br>");
+      })
+   }
+   Demo(["Delhi","Hyd","Mumbai"]);
+</script>
+
+Ex:
+<script>
+   function Demo(product){
+     document.write(`
+         Name : ${product.Name} <br>
+         Price: ${product.Price}
+     `);
+   }
+   Demo({Name:"Samsung TV", Price:45000.33});
+</script>
+
+EX:
+<script>
+   function Demo(print){
+      print();
+   }
+   Demo(function(){document.write("Hello ! World")});
+</script>
+
+						 Multiple Parameters
+- A function can have  multiple parameters.
+- Every parameter is required and have order dependency.
+- If you want to ignore any specific parameter, then you have handle using undefined type.
+
+Ex:
+<script>
+    function Details(name, price, stock){
+        if(price){
+            document.write(`Name=${name}<br>Price=${price}<br>Stock=${stock}`);
+        } else {
+            document.write(`Name=${name}<br>Stock=${stock}`);
+        }
+    }
+    Details("TV",45000,true);
+</script>
+
+- ECMA allows max 1024 parameters.
+- ES5+ versions introduced "rest" parameters
+- A single rest parameter can handle multiple arguments.
+- A rest parameter is defined using "...paramName".
+- It is an array type.
+- Every function can have only one rest parameter.
+- You can have other parameters along with rest parameter.
+- Rest parameter must be the last parameter in formal list.
+
+Syntax:
+	function demo(...param1, ...param2)	=> invalid
+	function demo(...param1, title)		=> invalid
+	function demo(title, ...param1)		=> valid
+
+- A rest parameter reads upto end, hence it must be the last parameter.
+
+Ex:
+<script>
+    function Details(title,...product){
+        var [name, price, stock, rating] = product;
+        if(price){
+            document.write(`<h2>${title}</h2>Name=${name}<br>Price=${price}<br>Stock=${stock}<br>Rating=${rating.rate}`);
+        } else {
+            document.write(`Name=${name}<br>Stock=${stock}`);
+        }
+    }
+    Details("Product Details","TV",45000,true,{rate:4.3});
+</script>
+
+				         Spread Syntax for Parameters
+- A spread approach allows single value to spread into multiple formal parameters.
+
+Syntax:
+	function  demo(a, b, c, d)
+	{
+	}
+	var values = [10, 20, 30, 40];
+	demo(...values)
+
+Ex:
+<script>
+    function Details(name, price, stock){
+       document.write(`Name=${name}<br>Price=${price}<br>Stock=${stock}`);
+    }
+    var product = ["TV", 45000.44, true];
+    Details(...product);
+</script>
+
+Note: Rest is about the formal parameters, a single formal parameter allows multiple arguments.
+	  Spread is about the actual parameters, a single acutal value can spread into multiple formal parameters.
+	  Spread actual value must be an array type.
+	  Rest is also array.
+
+						Function with Return
+
+- Return is a jump statement.
+- It terminates the function before its memory is disposed.
+- Hence we can use the function memory to store the function values and access from any another function.
+
+Syntax:
+	function Name(){
+	   return value;
+	}
+
+- A function can return any type of value.
+	a) Primitive
+	b) Non  Primitive
+	c) Function
+
+Ex:
+<script>
+   function Add(a, b)
+   {
+     return a + b;
+   }
+   function Print(){
+      document.write(`Addition=${Add(30,40)}`);
+   }
+   Print();
+</script>
+
+
+Ex:
+<script>
+   
+   function Add(collection)
+   {
+     return collection;
+   }
+   function Print(){
+      Add(["Delhi","Hyd","Mumbai"]).map(function(item){
+        document.write(item + "<br>");
+      })
+   }
+   Print();
+</script>
+
+
+Ex:
+<script>
+    function VerifyPassword(password){
+        if(password=="admin"){
+            return "Success";
+        } else {
+            return "Invalid";
+        }
+    }
+    document.write(VerifyPassword(prompt("Enter Password")));
+</script>
+
+Ex:
+<script>
+    function VerifyPassword(password){
+        if(password=="admin"){
+            return function(){
+                document.write("Login Success");
+            }
+        } else {
+            return function(){
+                document.write("Invalid Password");
+            }
+        }
+    }
+    VerifyPassword(prompt("Enter Password"))();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

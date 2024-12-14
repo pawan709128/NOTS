@@ -1,0 +1,237 @@
+Ex: Designing  a layout using Table
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table width="100%" frame="void" cellspacing="5" cellpadding="10" border="1">
+     <tr>
+        <td colspan="3" align="center">Header</td>
+     </tr>
+     <tr height="350">
+        <td width="10%">Nav</td>
+        <td>Main</td>
+        <td width="10%">Aside</td>
+     </tr>
+     <tr>
+        <td colspan="3" align="center">Footer</td>
+     </tr>
+   </table>
+</body>
+</html>
+
+Ex: Amazon Cards using Tables
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table width="100%" border="1" frame="void" cellspacing="5" cellpadding="5">
+      <tr height="300">
+        <td width="300">
+            <table border="0" width="100%" frame="void" cellspacing="2" cellpadding="2">
+                <tr>
+                    <td colspan="2">Title</td>
+                </tr>
+                <tr height="100">
+                    <td>pic1</td>
+                    <td>pic2</td>
+                </tr>
+                <tr height="100">
+                    <td>pic3</td>
+                    <td>pic4</td>
+                </tr>
+                <tr>
+                    <td colspan="2">see more</td>
+                </tr>
+            </table>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr height="200">
+        <td colspan="4"></td>
+      </tr>
+   </table>
+</body>
+</html>
+
+						  Forms in HTML
+- Form provides an UI from where user can interact with our application.
+- User can submit a query so that our application will process the query and generate a cusomized response.
+- Form is a container with set of elements like button, textbox, checkbox, radio, listbox, dropdown etc..
+
+						 The "Form" container
+- It is a container with set of elements, which can be submitted to server.
+- Every web page can have multiple forms.
+- The DOM hierarchy for form element is:
+	
+		window.document.forms[ ]	=> [ ]  collection
+
+- It is designed by using <form> token.
+
+Syntax:
+	<body>
+	    <form>
+		...form elements....
+	    </form>
+	</body>
+
+Attributes:
+1. Id			]
+
+2. Name		]	=> Reference technique used to access a form in page.
+
+3. Class		]
+
+4. Method	:	It defines the actions to perform. 
+				Every form can be configured with 2 actions or methods.
+					a) GET
+					b) POST
+
+FAQ: What is difference between GET and POST?
+Ans: 
+GET
+- It is the default method for form.
+- It is used to fetch data from server.
+
+POST
+- It is configured explicity.
+- It is used to submit data to server.
+
+Syntax:
+	<form  method="get | post">
+
+	</form>
+
+FAQ: Can we submit data to server on GET request?
+Ans: Yes. But not recommended every time.
+
+							GET
+- It submits the data by appending it into URL as "Query String".
+- Every user can view your data.
+- It is easy to hack your data.
+- It is not safe.
+- It is saved in browser logs. [history]
+- It can be bookmarked.
+- There is limit for submitting data. It allows max "2048 chars".
+- You can't submit complex data, like binary data. [images | graphics]
+- It can cache your data, which saves round trips from server.
+
+							POST
+- It submits the data to server as "Form Body".
+- It is not visible to general users.
+- It is hard to hack your data.
+- It is safe when compared to GET.
+- It is not saved in browser logs.
+- It can't be bookmarked.
+- There is no limit for data. You can submit any amount of data.
+- You can submit complex data, like binary.
+- You can't cache the data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

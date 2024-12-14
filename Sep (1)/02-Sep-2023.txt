@@ -1,0 +1,438 @@
+					        Function Closure
+- Closure is a mechanism that allows the members of outer scope accessible to inner scope.
+- Every function by default have a closure.
+
+Syntax:
+	function Outer()
+	{
+	  function Inner()
+	  {
+ 	   return value;
+	  }
+	 ...you can access inner value...
+       }
+
+Ex:
+<script>
+    function Outer(){
+         let x = 10;
+         function Inner(){
+            let y = 20;
+            return x + y;
+         }
+         document.write(`Addition=${Inner()}`);
+    }
+    Outer();
+</script>
+
+						    Function Generator
+- A function generator is used to create iterators in computer programming.
+- Iterator is a software design pattern used to access elements from a collection in sequential order.
+- Iterator doesn't require condition, counter and initializer.
+- Generator is defined using "*"  which means zero or more times execution.
+- It "yeilds" a result and moves to "next()".
+- The method "done()" returns true when there is no more value to read.
+
+Syntax:
+   function*  Name()
+   {
+	yield value;
+   }
+   var ref = Name();
+   ref.next().value		=> return value
+   ref.next().done		=> return true if there are no more values to read.
+
+Ex:
+<script>
+     function* Numbers()
+     {
+        yield 10;
+        yield 20;
+        yield 30;
+     }
+     var n = Numbers();
+     console.log(n.next());
+     console.log(n.next());
+     console.log(n.next());
+     console.log(n.next());
+</script>
+
+						Function Call Back
+- It is a technique where we configure a set of functions that execute according to state and situation.
+- Call Back uses blocking technique.
+- It is Synchronous. 
+- It will not allow any another task to perform while executing the function.
+
+Syntax:
+	function Name(callBack1, callBack2)
+	{
+	}
+
+	Name(function(){}, function(){});
+
+Ex:
+<script>
+     function GetAPI(url,success,failure){
+        if(url=="http://fakestoreapi.com"){
+            success();
+        } else {
+            failure();
+        }
+     }
+     GetAPI(prompt("Enter Url"), function(){
+        document.write("Data Fetched Successfully..");
+     }, function(){
+        document.write("Error : Unable to fetch");
+     })
+</script>
+
+						Function Promise
+- Promise uses an Async technique.
+- Async is an unblocking technique that allows the task to perform without blocking other tasks.
+- Promise comprises of 3 phases
+
+		a) Pending		: Initial phase
+		b) Resolved		: It is defined using then()
+		c) Rejected		: It is defined using catch()
+
+- then() will handle the response when it is success.
+- catch() will handle the error when it failed.
+
+Syntax:
+	 var refName = new Promise(function(resolve, reject){
+		 if(condition)
+		  {
+		     resolve("on success");
+		  } else {
+		     reject("on failure");
+		  }
+	})
+
+	refName.then(function(){}).catch(function(){})
+
+Ex:
+<script>
+    var GetAPI = new Promise(function(resolve,reject){
+        var url = prompt("Enter Url");
+        if(url=="http://fakestoreapi.com"){
+            resolve("Data Fetched Successfully..");
+        } else {
+            reject("Unable to fetch data");
+        }
+    });
+    GetAPI.then(function(res){
+        document.write(`Succes: ${res}`);
+    })
+    .catch(function(exp){
+        document.write(`Error: ${exp}`);
+    })
+</script>
+						   Function Recursion
+- Recursion is a technique of calling a function with in the context of same function.
+- It is often used for creating batch operations.
+- It can configure a infinite loop.
+- It is commonly used to build complex mathematical or scentific expressions.
+
+Syntax:
+	function f1(){
+	{
+	   f1();
+	}
+
+Ex:
+<script>
+    function Factorial(n){
+        if(n==0){
+            return 1;
+        } else {
+            return n * Factorial(n-1);
+        }
+    }
+    document.write(`Fatorial of 7 is ${Factorial(7)}`);
+</script>
+
+
+						Arrow Function
+- It is a short hand technique for writing a function expression.
+- It uses following chars
+	()		function & its params
+	=>		return and definition
+
+Syntax: without arrow
+
+	var addition = function(a, b) {
+		 return a + b;	
+	}
+
+Syntax: with arrow
+
+	var addition = (a,b) => a + b;
+
+	var  hello = () => { 
+		statement-1;
+		statement-2;
+	}
+
+Ex:
+	function Hello(uname)
+	{
+		document.write(`Hello ! ${uname}`);
+	}
+
+	var Hello = uname => document.write(`Hello ! {uname}`);
+	var Hello = (uname, age) => document.write(`Hello ! ${uname} your age ${age}`);
+
+Ex:
+<script>
+     var addition = (a,b) => a + b;
+     document.write("addition=" + addition(20,30));
+</script>
+
+Ex:
+<script>
+      fetch("http://fakestoreapi.com/products")
+      .then(response=>response.json())
+      .then(products=>{
+          products.map(product=>{
+              document.write(product.title + "<br>");
+          })
+      })
+</script>
+
+						     JavaScript OOP
+- In real world project development we use various programming systems like
+	
+	1. POPS
+	2. OBPS
+	3. OOPS
+
+POPS
+- Process Oriented Programming System
+- It supports low level features.
+- It can directly interact with hardware services.
+- It is faster and uses less memory.
+
+Ex: C, Pascal
+
+- Hard to extend
+- Not having good dynamic memory
+- Not good for reusability
+- Not good in speration issues
+
+OBPS
+- Object Based Programming System
+- It supports reusability, separation
+- It have dynamic memory
+
+Ex: JavaScript, Visual Basic
+
+- Extensibility issues
+- No dynamic polymorphishm
+- No code level security
+- No contracts & templates
+
+OOPS
+- Object Oriented Programming System
+- Code reusability
+- Code separation
+- Code Extensibility
+- Code Security etc..
+
+Ex: C++, C#, Java
+
+- Don't support direct low level features
+- Can't directly interact with hardware
+- They need more memory
+- Complex in configure
+- Tidious.
+
+1. JavaScirpt Module System
+2. JavaScript Classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

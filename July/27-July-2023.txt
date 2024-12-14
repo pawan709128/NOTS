@@ -1,0 +1,221 @@
+Form Element Attributes
+1. Id
+2. Name
+3. Class
+4. Method
+5. Action		:  It defines the target where form data is submitted.
+			   It is usually a server side page. [.jsp, .php, .asp, .aspx]
+
+Syntax:
+	<form  method="post"  action="page.jsp | page.aspx | page.php">
+
+6. novalidate	: HTML 5 have default validations, which you can disable by using
+			  "novalidate" attribute.
+
+Syntax:
+		<form  method="get"  novalidate>
+
+		</form>
+
+						Form Elements
+- Every typical HTML form comprises of various elements like
+	button
+	textbox
+	checkbox
+	radio
+	listbox
+	dropdown etc..
+
+- HTML provides different tokens for creating elements
+	<input>
+	<select>
+	<option>
+	<optgroup>
+	<datalist>
+	<textarea>
+	<progress>
+	<meter> etc..
+
+Note: All elements must be inside form container. If elements are configured outside
+	  <form> then page can't submit their data to server.
+
+
+							TextBox
+- In HTML <input> element is used to for various types of inputs.
+- Textbox is used to handle a string input.
+- String is a literal with group of chars, which inclue [A-Z,0-9, special chars]
+- A textbox allows to view, input and edit string.
+- To make <input> as textbox you have to use the attribute  "type".
+
+Syntax:
+		<input type="textbox">		HTML 4 old style
+		<input type="text">			HTML 5 
+
+Attributes:
+1. Id			]
+2. Name		]	Use to refer the element.
+3. Class		]	
+
+Note: Every HTML element must have a "name". Form can't submit the value of any element if Name attribute is not defined.
+
+	<input type="text"  name="UserName">
+
+4. value		: 	It defines the default value to display in textbox.
+
+	<input type="text"  name="UserName"  value="John">
+
+5. readonly	: 	It will not allow to modify the value in textbox. But it submits the 
+				value.
+
+	<input type="text"  name="UserName"  value="John" readonly>
+
+6. disabled	: 	It will not allow to modify the value in textbox. It will not submit the
+				value.
+
+	<input type="text" name="UserName" value="John" disabled>
+
+7. size		: 	It defines the width for textbox. The default width is 20.
+
+	<input type="text"  name="OTP" size="4">
+
+8. placeholder	 :	It defines the watermark text to display in textbox.
+
+	<input type="text" name="UserName"  placeholder="Name Required">
+
+9. autofocus	:	It sets focus to the element automatically on page load.
+
+	<input type="text" name="UserName" autofocus>	[ FIFO ]
+
+10. minlength	: 	It validates the minimum number of chars in textbox.
+
+	<input type="text"  name="UserName" minlength="4">
+
+11. maxlength	:	It restricts the maximum number of chars in textbox.
+
+	<input type="text" name="UserName" minlength="4" max="10">
+
+Note: validation allows to enter any value but set rules for value.
+	  restriction will not allow anything other than specified. It doesn't require validation.
+
+ 12. required	: It is used to ensure that textbox is having  value.
+			  It will not allow to submit a blank value.
+
+  	<input type="text"  name="UserName"  required>
+
+ 13. list		: It is used to display a datalist as auto complete text.
+			  Datalist is configured using following elements
+				<datalist>
+				<option>
+
+	<input type="text"  name="search"  list="terms">
+	<datalist id="terms">
+	 <option> 1 </option>
+	 <option> 2 </option>
+	</datalist>
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <form align="center">
+        <h1>Google</h1>
+        <input type="text" name="searchTerm" size="40" list="terms">
+        <datalist id="terms">
+            <option>JavaScript Tutorial</option>
+            <option>CSS Examples</option>
+            <option>JavaScript Project</option>
+            <option>HTML Examples</option>
+            <option>HTML Project</option>
+            <option>HTML Tutorial</option>
+            <option>CSS Tutorial</option>
+        </datalist>
+        <p>
+            <button>Search</button>
+        </p>
+    </form>
+</body>
+</html>
+
+14. pattern
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			   

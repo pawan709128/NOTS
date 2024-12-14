@@ -1,0 +1,239 @@
+TextBox
+1. id
+2. name
+3. class
+4. value
+5. readonly
+6. disabled
+7. size
+8. required
+9. minlength
+10. maxlength
+11. autofocus
+12. placeholder
+13. list
+14. pattern
+
+							  pattern
+- It is used to verify the format of input value.
+- Format is about how it starts, how it ends and what it contains etc..
+- Pattern requires a "Regular Expression" to verify the format of input value.
+
+				pattern = "regExp"
+
+- A regular expression is built by using 
+
+	a) Meta Characters
+	b) Quantifiers
+
+Meta Character			Description
+----------------------------------------------------------------------------------
+ ?						Zero or One occurance of a character
+
+						Ex:  colou?r  	=>  color, colour
+
+ *						Zero or more occurances of a character
+
+						Ex:  colou*r	=> color, colour, colouur, colouuur
+
+ +						One or more occurances of character
+
+						 Ex:  colou+r	=> colour, colouur, colouuur..
+
+ . (dot)					Any single character
+						
+						Ex:   .at		=> cat, bat, mat, 2at, #at ...
+							..t		=> cot, cat
+
+|						Logical OR, any 1 of the given set of value.
+
+
+						Ex: pattern="green|red|blue"
+						      pattern="color|colour"
+
+\						It is an escape sequence character.
+						It changes a normal character into meta character and 
+						vice versa.
+
+						Ex:  pattern="gmail\.com"   => gmail.com
+
+^						It defines excluding specified char
+					
+						Ex:  pattern="^d"    => allow only "d" and exclude others
+
+\^						It defines starts with
+
+$						It defines ends width
+
+						Ex:
+							pattern="\^ expression $"
+
+( )						It defines union of chars or expressions.
+
+
+[ ]						It defines range of chars, or multiple chars set. [collection]
+
+						Ex:
+						  pattern="[a-d]" 	=> a, b, c, d
+						  pattern="[^a-d]"	=> all other than a-d.
+						  pattern=[a,d,s]	=> only specified allowed
+						  pattern=[^a,d,s]	=> all others allowed excluding
+										     "a, d, s"
+
+\d						Any single digit number [0-9]
+
+						Ex:  pattern="\d"
+						       pattern="[0-9]"
+						       pattern="\d?\d"
+						       pattern="\d\d?"
+
+\D						all chars other than number. [Non Numeric]
+		
+						Ex:  pattern="\D"	=> [a-zA-z] and special chars allowed
+						       pattern="\D\d"  => A3, a4, $2, #5 
+							
+\s						It represents single blank space.
+						
+Note: Never use directly blank spaces in pattern always configure with  "\s".
+
+						Ex:  pattern="\D\s\d"   =>  A  4,  $ 5
+
+ \w						It defines a word char.
+						Word char can be [ A-Z a-z 0-9 _ ]
+
+						Ex: pattern="\w"	=> [ A-Z a-z 0-9 _ ]
+						      pattern="\w\d"	=> a4, _4, A5
+						      pattern="\w\D"	=>  AB, A$, _A
+
+\W						Only special chars allowed other than _ .
+						
+						Ex: pattern="\W"	=> ! @ # $ % ^ & 
+						      pattern="\W\w"	=> @A, @4, @_, @a
+
+[a-z]						only lower case letters
+[A-Z]						only upper case letters
+[a-zA-Z]					both upper & lower case
+[0-9]						only numeric
+[a-zA-Z0-9]				alpha numeric
+[!, @, # , $ ,%]				only specified special chars
+[^a-z]					excluding specified range
+[^a, d, s]					excluding specified chars
+[a, d, s]					only specified chars allow
+[a-d,4-9]					only specifies range of chars allows
+
+
+Quantifier				Description
+-------------------------------------------------------------------------------
+ { n }						exactly "n" number of chars
+
+						pattern="\d{4}"
+ 
+ {n, m}					minimum - n  & maximum - m
+
+						pattern ="\d{4,10}"
+
+ {n , }					minimum - n  & maximum - any
+
+						pattern="\d{4, }"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
